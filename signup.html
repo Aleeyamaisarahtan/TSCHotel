@@ -5,124 +5,124 @@
   <meta charset="UTF -8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>TSCHotel SIGN UP</title>
+  <title>TSCHotel SIGN UP</title>
 
-<style>
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  background: url('HotelBackground.jpg') no-repeat;
-  background-size:cover ;
-  background-position: center;
-}
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background: url('HotelBackground.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
 
-.wrapper{
-  position:relative;
-  width: 400px;
-  height: 520px;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,5);
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .wrapper {
+      position: relative;
+      width: 400px;
+      height: 520px;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 5);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.wrapper .form-box{
-  width: 100%;
-  padding: 40px;
-}
+    .wrapper .form-box {
+      width: 100%;
+      padding: 40px;
+    }
 
-.form-box h2{
-  font-size: 2em;
-  color: #162938;
-  text-align: center;
-}
+    .form-box h2 {
+      font-size: 2em;
+      color: #162938;
+      text-align: center;
+    }
 
-.input-box{
-  position: relative;
-  width: 100%;
-  height: 50px;
-  border-bottom: 2px solid #162938;
-  margin: 30px 0;
-}
+    .input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      border-bottom: 2px solid #162938;
+      margin: 30px 0;
+    }
 
-.input-box label{
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 1em;
-  color: #162938;
-  font-weight: 500;
-  pointer-events: none;
-  transition: .5s;
-}
+    .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 1em;
+      color: #162938;
+      font-weight: 500;
+      pointer-events: none;
+      transition: .5s;
+    }
 
-.input-box input:focus~label,
-.input-box input:valid~label {
-  top: -5px;
-}
+    .input-box input:focus~label,
+    .input-box input:valid~label {
+      top: -5px;
+    }
 
-.input-box input{
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1em;
-  color: #162938;
-  font-weight: 600;
-  padding: 0 35px 0 5px;
-}
+    .input-box input {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 1em;
+      color: #162938;
+      font-weight: 600;
+      padding: 0 35px 0 5px;
+    }
 
-.input-box .icon{
-  position:absolute;
-  right: 8px;
-  font-size: 1.2em;
-  color: #162938;
-  line-height: 57px;
-}
+    .input-box .icon {
+      position: absolute;
+      right: 8px;
+      font-size: 1.2em;
+      color: #162938;
+      line-height: 57px;
+    }
 
-.btn{
-  width: 100%;
-  height: 45px;
-  background: #162938;
-  border: none;
-  outline: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1em;
-  color: #fff;
-  font-weight: 500;
-}
+    .btn {
+      width: 100%;
+      height: 45px;
+      background: #162938;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #fff;
+      font-weight: 500;
+    }
 
-.login-register{
-  font-size: .9em;
-  color: #162938;
-  text-align: center;
-  font-weight: 500;
-  margin: 25px 0 10px;
-}
+    .login-register {
+      font-size: .9em;
+      color: #162938;
+      text-align: center;
+      font-weight: 500;
+      margin: 25px 0 10px;
+    }
 
-.login-register p a{
-  color: #162938;
-  text-decoration: none;
-  font-weight: 600;
-}
+    .login-register p a {
+      color: #162938;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-.login-register p a:hover{
-  text-decoration: underline;
-}
+    .login-register p a:hover {
+      text-decoration: underline;
+    }
 
-</style>
+  </style>
 
 </head>
 
@@ -134,45 +134,63 @@ body{
     <div class="form-box login">
 
       <h2>SIGN UP</h2>
-      <form action="#">
+      <form action="http://localhost:3000/signup" method="POST">
+        <input type="hidden" id="userId" name="userId">
+  
         <div class="input-box">
-            <span class="icon"><ion-icon name="person"></ion-icon></span>
-            <input type="text" required>
-            <label>Full Name</label>
-          </div>
+          <span class="icon"><ion-icon name="person"></ion-icon></span>
+          <input type="text" name="fullName" required>
+          <label>Full Name</label>
+        </div>
 
-          <div class="input-box">
-            <span class="icon"><ion-icon name="call"></ion-icon></span>
-            <input type="text" required>
-            <label>Phone Number</label>
-          </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="call"></ion-icon></span>
+          <input type="text" name="phoneNumber" required>
+          <label>Phone Number</label>
+        </div>
 
         <div class="input-box">
           <span class="icon"><ion-icon name="mail"></ion-icon></span>
-          <input type="email" required>
+          <input type="email" name="email" required>
           <label>Email</label>
         </div>
 
         <div class="input-box">
           <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-          <input type="password" required>
+          <input type="password" name="password" required>
           <label>Password</label>
         </div>
         <button type="submit" class="btn">Sign Up</button>
         <div class="login-register">
           <p>Already have an account?<a href="signin.html" class="register-link">Sign In</a></p>
         </div>
-
-
       </form>
     </div>
-
-
   </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // Assuming this script fetches the last user ID from the server (via API or database)
+    // This part of the code simulates the process of getting the last user ID and incrementing it.
+
+    // Example: fetching last user ID (simulate this with a function or an API request)
+    const lastUserId = 'U0003'; // Replace with dynamic fetch from the database if needed
+    
+    // Extract the number part and increment it
+    const lastIdNumber = parseInt(lastUserId.slice(1)); // Get number after 'U'
+    const nextIdNumber = lastIdNumber + 1;
+    
+    // Generate the next user ID
+    const nextUserId = 'U' + nextIdNumber.toString().padStart(4, '0'); // Example: U0004
+
+    // Assign the generated user ID to the hidden input field
+    document.getElementById('userId').value = nextUserId;
+  </script>
 
 </body>
 
-<script src="script.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </html>

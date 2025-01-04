@@ -5,270 +5,306 @@
   <meta charset="UTF -8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>TSCHotel BOOKING</title>
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;   
-}
-
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-}
-
-.logo{
-    font-size: 2em;
-    color: #fff;
-    user-select: none;
-}
-
-.navigation a{
-    position:relative ;
-    font-size: 1.1em;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;
-}
-
-.navigation a::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    border-radius: 5px;
-    transform: scaleX(0);
-    transition: transform .5s;
-}
-
-.navigation a:hover::after{
-    transform: scaleX(1);
-}
-
-.navigation .btnsignout-popup{
-    width: 130px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #fff;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #fff;
-    font-weight: 500;
-    margin-left: 40px;
-    transition: .5s;
-}
-
-.navigation .btnsignout-popup:hover{
-    background: #fff;
-    color: #162938;
-}
-
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  height: 100vh;
-  font-family: 'Times New Roman', Times, serif; 
-  margin: 0;
-  overflow: hidden;
-  background: url('HotelBackground.jpg') no-repeat;
-  background-size:cover ;
-  background-position: center;
-  margin-top: 50px;
-}
-
-.wrapper{
-  position:relative;
-  width: 400px;
-  height: 680px;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,5);
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.wrapper .form-box{
-  width: 100%;
-  padding: 40px;
-}
-
-.form-box h2{
-  font-size: 2em;
-  color: #162938;
-  text-align: center;
-}
-
-.input-box{
-  position: relative;
-  width: 100%;
-  height: 50px;
-  border-bottom: 2px solid #162938;
-  margin: 30px 0;
-}
-
-.input-box label{
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 1em;
-  color: #162938;
-  font-weight: 500;
-  pointer-events: none;
-  transition: .5s;
-}
-
-.input-box input:focus~label,
-.input-box input:valid~label {
-  top: -5px;
-}
-
-.input-box input{
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1em;
-  color: #162938;
-  font-weight: 600;
-  padding: 0 35px 0 0px;
-}
-
-.input-box select{
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-family: 'Times New Roman', Times, serif; 
-  font-size: 1em;
-  color: #162938;
-  font-weight: normal;
-  padding: 0 35px 0 3px;
-}
-
-.input-box input[type="date"] {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 1em;
-  color: #162938;
-  font-weight: normal;
-  padding: 0 35px 0 5px;
-  appearance: none;
-}
-
-.display p:first-child {
-    margin-bottom: 10px;
-  }
-
-.display p {
-  color: #162938; 
-}
-
-.btn{
-  width: 100%;
-  height: 45px;
-  background: #162938;
-  border: none;
-  outline: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1em;
-  color: #fff;
-  margin-top: 20px;
-  font-weight: 500;
-}
-</style>
-
+  <title>TSCHotel BOOKING</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;   
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 100px;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 99;
+    }
+    
+    .logo {
+      font-size: 2em;
+      color: #fff;
+      user-select: none;
+    }
+    
+    .navigation a {
+      position: relative;
+      font-size: 1.1em;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 40px;
+    }
+    
+    .navigation a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+      transform: scaleX(0);
+      transition: transform .5s;
+    }
+    
+    .navigation a:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .navigation .btnsignout-popup {
+      width: 130px;
+      height: 50px;
+      background: transparent;
+      border: 2px solid #fff;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: 500;
+      margin-left: 40px;
+      transition: .5s;
+    }
+    
+    .navigation .btnsignout-popup:hover {
+      background: #fff;
+      color: #162938;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      height: 100vh;
+      font-family: 'Times New Roman', Times, serif; 
+      margin: 0;
+      overflow: hidden;
+      background: url('HotelBackground.jpg') no-repeat;
+      background-size: cover ;
+      background-position: center;
+      margin-top: 50px;
+    }
+    
+    .wrapper {
+      position: relative;
+      width: 400px;
+      height: 680px;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 5);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .wrapper .form-box {
+      width: 100%;
+      padding: 40px;
+    }
+    
+    .form-box h2 {
+      font-size: 2em;
+      color: #162938;
+      text-align: center;
+    }
+    
+    .input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      border-bottom: 2px solid #162938;
+      margin: 30px 0;
+    }
+    
+    .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 1em;
+      color: #162938;
+      font-weight: 500;
+      pointer-events: none;
+      transition: .5s;
+    }
+    
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+      top: -5px;
+    }
+    
+    .input-box input {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 1em;
+      color: #162938;
+      font-weight: 600;
+      padding: 0 35px 0 0px;
+    }
+    
+    .input-box select {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: 'Times New Roman', Times, serif; 
+      font-size: 1em;
+      color: #162938;
+      font-weight: normal;
+      padding: 0 35px 0 3px;
+    }
+    
+    .input-box input[type="date"] {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1em;
+      color: #162938;
+      font-weight: normal;
+      padding: 0 35px 0 5px;
+      appearance: none;
+    }
+    
+    .display p:first-child {
+      margin-bottom: 10px;
+    }
+    
+    .display p {
+      color: #162938; 
+    }
+    
+    .btn {
+      width: 100%;
+      height: 45px;
+      background: #162938;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #fff;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+  </style>
 </head>
+
 <header>
-<h2 class="logo">TSCHotel</h2>
-<nav class="navigation">
+  <h2 class="logo">TSCHotel</h2>
+  <nav class="navigation">
     <a href="#">Home</a>
     <a href="#">View Rooms</a>
     <a href="#">Book Room</a>
     <a href="#">View Booking</a>
     <button class="btnsignout-popup">Sign Out</button>
+  </nav>
 </header>
+
 <body>
+  <div class="wrapper">
+    <div class="form-box login">
+      <h2>BOOK A ROOM</h2>
+      <form action="/booking" method="POST">
+        <div class="input-box">
+          <input type="text" name="guestname" required>
+          <label>Guest Name</label>
+        </div>
 
-<div class="wrapper">
-<div class="form-box login">
+        <div class="input-box">
+          <input type="email" name="guestemail" required>
+          <label>Guest Email</label>
+        </div>
 
-<h2>BOOK A ROOM</h2>
-<form action="#">
-    <div class="input-box">
-        <input type="text" required>
-        <label>Guest Name</label>
+        <div class="input-box">
+          <input type="text" name="guestphonenum" required>
+          <label>Guest Phone Number</label>
+        </div>
+
+        <div class="input-box">
+          <select id="room" name="room">
+            <option>Choose A Room</option>
+            <option>R001</option>
+            <option>R002</option>
+            <option>R003</option>
+            <option>R004</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <input type="date" name="checkindate" id="checkin">
+          <label>Check In date</label>
+        </div>
+
+        <div class="input-box">
+          <input type="date" name="checkoutdate" id="checkout">
+          <label>Check Out Date</label>
+        </div>
+
+        <div class="display">
+          <p>Booking Amount: <span id="display-amount">$0</span></p>
+          <p>Booking Date: <span id="display-date">N/A</span></p>
+        </div>
+
+        <input type="hidden" id="bookingAmount" name="bookingAmount" value="0">
+        <input type="hidden" id="bookingDate" name="bookingDate" value="">
+        <input type="hidden" name="user_id" id="user_id">
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
     </div>
-
-    <div class="input-box">
-        <input type="email" required>
-        <label>Guest Email</label>
-    </div>
-
-    <div class="input-box">
-      <input type="text" required>
-      <label>Guest Phone Number</label>
   </div>
 
-    <div class="input-box">
-    <select id="room" name="room">
-        <option >Choose A Room</option>
-        <option >001</option>
-        <option >002</option>
-        <option >003</option>
-        <option >004</option>
-      </select>
-      </div>
+  <script>
+    function calculateAmount() {
+  const room = document.getElementById('room').value;
+  const checkin = new Date(document.getElementById('checkin').value);
+  const checkout = new Date(document.getElementById('checkout').value);
 
-      <div class="input-box">
-        <input type="date" id="checkin" >
-        <label>Check In date</label>
-    </div>
+  // Ensure that check-in and check-out dates are valid
+  if (checkin && checkout && checkin < checkout) {
+    const duration = (checkout - checkin) / (1000 * 3600 * 24); // Duration in days
+    let roomPrice = 0;
 
+    // Example room pricing (replace with actual data from backend or local logic)
+    if (room === 'R001') roomPrice = 100;
+    else if (room === 'R002') roomPrice = 150;
+    else if (room === 'R003') roomPrice = 120;
+    else if (room === 'R004') roomPrice = 130;
 
-    <div class="input-box">
-        <input type="date" id="checkout">
-        <label>Check Out Date</label>
-    </div>
+    const bookingAmount = roomPrice * duration;
+    document.querySelector('#display-amount').textContent = `$${bookingAmount}`;
+    document.querySelector('#bookingAmount').value = bookingAmount; // Set hidden booking amount field
 
-    <div class="display">
-    <p>Booking Amount</p>
-    <p>Booking Date</p>
-    </div>
-    <button type="submit" class="btn">Submit</button>
-
-  </form>
-</div>
-
-</div>
-
+    // Format the check-in date to a custom format: DD/MM/YYYY
+    const formattedCheckinDate = checkin.toLocaleDateString('en-GB'); // UK format (DD/MM/YYYY)
+    document.querySelector('#display-date').textContent = formattedCheckinDate;
+    document.querySelector('#bookingDate').value = formattedCheckinDate; // Set hidden booking date field
+  } else {
+    // If dates are invalid, clear the booking amount
+    document.querySelector('#display-amount').textContent = "$0";
+    document.querySelector('#display-date').textContent = "N/A";
+    document.querySelector('#bookingAmount').value = "0"; // Clear hidden booking amount field
+    document.querySelector('#bookingDate').value = ""; // Clear hidden booking date field
+  }
+}
+  </script>
 </body>
 
 </html>
