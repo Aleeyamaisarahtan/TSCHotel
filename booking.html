@@ -238,12 +238,8 @@
         </div>
 
         <div class="input-box">
-          <select id="room" name="room">
-            <option>Choose A Room</option>
-            <option>R001</option>
-            <option>R002</option>
-            <option>R003</option>
-            <option>R004</option>
+          <select id="room" name="room_id">
+            <option value="" disabled selected>Choose A Room</option>
           </select>
         </div>
 
@@ -272,26 +268,49 @@
   </div>
 
   <script>
-    function calculateAmount() {
+  let roomPrices = {}; // Object to store room prices
+
+async function fetchRoomPrices() {
+  try {
+    const response = await fetch('/rooms');
+    if (!response.ok) throw new Error('Failed to fetch room prices');
+    
+    const rooms = await response.json();  // Assuming the server returns an array of rooms
+    const roomSelect = document.getElementById('room');
+    
+    // Clear existing options (if any)
+    roomSelect.innerHTML = '<option value="" disabled selected>Choose A Room</option>';
+    
+    // Loop through rooms and create options dynamically
+    rooms.forEach(room => {
+      const option = document.createElement('option');
+      option.value = room.room_id;  // The room_id is used as the value of the option
+      option.textContent = `Room ${room.room_id} - RM${room.room_price}`;  // Display room_id and price
+      roomSelect.appendChild(option);
+      
+      // Store the room price in the roomPrices object
+      roomPrices[room.room_id] = room.room_price;
+    });
+  } catch (error) {
+    console.error('Error fetching room prices:', error);
+  }
+}
+  
+// Calculate the booking amount based on selected room and stay duration
+function calculateAmount() {
   const room = document.getElementById('room').value;
   const checkin = new Date(document.getElementById('checkin').value);
   const checkout = new Date(document.getElementById('checkout').value);
-
+  
   // Ensure that check-in and check-out dates are valid
-  if (checkin && checkout && checkin < checkout) {
+  if (room && checkin && checkout && checkin < checkout) {
     const duration = (checkout - checkin) / (1000 * 3600 * 24); // Duration in days
-    let roomPrice = 0;
-
-    // Example room pricing (replace with actual data from backend or local logic)
-    if (room === 'R001') roomPrice = 100;
-    else if (room === 'R002') roomPrice = 150;
-    else if (room === 'R003') roomPrice = 120;
-    else if (room === 'R004') roomPrice = 130;
-
+    const roomPrice = roomPrices[room] || 0; // Get the room price or default to 0
+  
     const bookingAmount = roomPrice * duration;
     document.querySelector('#display-amount').textContent = `$${bookingAmount}`;
     document.querySelector('#bookingAmount').value = bookingAmount; // Set hidden booking amount field
-
+  
     // Format the check-in date to a custom format: DD/MM/YYYY
     const formattedCheckinDate = checkin.toLocaleDateString('en-GB'); // UK format (DD/MM/YYYY)
     document.querySelector('#display-date').textContent = formattedCheckinDate;
@@ -304,7 +323,19 @@
     document.querySelector('#bookingDate').value = ""; // Clear hidden booking date field
   }
 }
+
+  
+// Fetch room prices when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
+  await fetchRoomPrices();
+  
+  // Attach event listeners for real-time calculations
+  document.getElementById('checkin').addEventListener('change', calculateAmount);
+  document.getElementById('checkout').addEventListener('change', calculateAmount);
+  document.getElementById('room').addEventListener('change', calculateAmount);
+});
   </script>
+  
 </body>
 
 </html>
