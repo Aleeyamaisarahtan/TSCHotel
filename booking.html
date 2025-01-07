@@ -301,7 +301,13 @@ function calculateAmount() {
   const room = document.getElementById('room').value;
   const checkin = new Date(document.getElementById('checkin').value);
   const checkout = new Date(document.getElementById('checkout').value);
-  
+  const currentDate = new Date();
+
+
+
+
+
+
   if (room && checkin && checkout && checkin < checkout) {
     const duration = (checkout - checkin) / (1000 * 3600 * 24); 
     const roomPrice = roomPrices[room] || 0; 
@@ -311,7 +317,8 @@ function calculateAmount() {
     document.querySelector('#bookingAmount').value = bookingAmount;
   
     const formattedCheckinDate = checkin.toLocaleDateString('en-GB'); 
-    document.querySelector('#display-date').textContent = formattedCheckinDate;
+    const formattedDate = currentDate.toLocaleDateString('en-GB');  
+    document.querySelector('#display-date').textContent = formattedDate;
     document.querySelector('#bookingDate').value = formattedCheckinDate; 
   } else {
     document.querySelector('#display-amount').textContent = "$0";
