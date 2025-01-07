@@ -2,208 +2,205 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF -8">
-  <meta http-equiv="X-UA-Compatible" content="IE-edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>TSCHotel BOOKING</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TSCHotel View Room</title>
 
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;   
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-}
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 100px;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 99;
+    }
 
-.logo{
-    font-size: 2em;
-    color: #fff;
-    user-select: none;
-}
+    .logo {
+      font-size: 2em;
+      color: #fff;
+      user-select: none;
+    }
 
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background: url('HotelBackground.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
 
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  background: url('HotelBackground.jpg') no-repeat;
-  background-size:cover ;
-  background-position: center;
-}
+    .navigation a {
+      position: relative;
+      font-size: 1.1em;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 40px;
+    }
 
-.navigation a{
-    position:relative ;
-    font-size: 1.1em;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;
-}
+    .navigation a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+      transform: scaleX(0);
+      transition: transform .5s;
+    }
 
-.navigation a::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    border-radius: 5px;
-    transform: scaleX(0);
-    transition: transform .5s;
-}
+    .navigation a:hover::after {
+      transform: scaleX(1);
+    }
 
-.navigation a:hover::after{
-    transform: scaleX(1);
-}
+    .navigation .btnsignout-popup {
+      width: 130px;
+      height: 50px;
+      background: transparent;
+      border: 2px solid #fff;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: 500;
+      margin-left: 40px;
+      transition: .5s;
+    }
 
-.navigation .btnsignout-popup{
-    width: 130px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #fff;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #fff;
-    font-weight: 500;
-    margin-left: 40px;
-    transition: .5s;
-}
+    .navigation .btnsignout-popup:hover {
+      background: #fff;
+      color: #162938;
+    }
 
-.navigation .btnsignout-popup:hover{
-    background: #fff;
-    color: #162938;
-}
-.picture-table {
+    .picture-table {
       border-collapse: collapse;
       margin: 20px auto;
       width: 50%;
       backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.5);
       border: 2px solid #000;
     }
 
     .cell {
-      border: 1px solid #000; 
+      border: 1px solid #000;
       text-align: center;
       padding: 10px;
     }
 
     img {
-        width: 300px; 
-      height: 200px; 
-      object-fit: cover; 
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
     }
 
     .table-container {
-      max-height: 510px; 
+      max-height: 510px;
       overflow-y: auto;
     }
 
-    
-     .table-container::-webkit-scrollbar {
-      width: 0px; 
-      height: 0px; 
+    .table-container::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
     }
 
-</style>
-
+  </style>
 </head>
 
 <body>
-    <header>
-        <h2 class="logo">TSCHotel</h2>
-        <nav class="navigation">
-            <a href="#">Home</a>
-            <a href="#">View Rooms</a>
-            <a href="#">Book Room</a>
-            <a href="#">View Booking</a>
-            <button class="btnsignout-popup">Sign Out</button>
-        </nav>
-    </header>
+  <header>
+    <h2 class="logo">TSCHotel</h2>
+    <nav class="navigation">
+      <a href="http://localhost:3000/homepage.html">Home</a>
+      <a href="http://localhost:3000/viewroom.html">View Rooms</a>
+      <a href="http://localhost:3000/booking.html">Book Room</a>
+      <a href="http://localhost:3000/viewbooking.html">View Booking</a>
+      <button class="btnsignout-popup" id="signout-button">Sign Out</button>
+    </nav>
+  </header>
 
-    <div class="table-container">
+  <div class="table-container">
     <table class="picture-table">
+      <thead>
         <tr>
-          <td class="cell">
-            <img src="HotelBackground.jpg" alt="Picture 1">
-            <label>Room Type : </label>
-            <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-          </td>
-          <td class="cell">
-            <img src="HotelBackground.jpg" alt="Picture 2">
-            <label>Room Type : </label>
-            <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-
-          </td>
-          <td class="cell" colspan="2">
-            <img src="HotelBackground.jpg" alt="Picture 3">
-            <label>Room Type :</label> 
-            <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-          </td>
+          <th>Room Details</th>
         </tr>
-        <tr>
-            <td class="cell">
-              <img src="HotelBackground.jpg" alt="Picture 1">
-              <label>Room Type : </label>
-              <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-            </td>
-            <td class="cell">
-              <img src="HotelBackground.jpg" alt="Picture 2">
-              <label>Room Type :</label> 
-              <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-            </td>
-            <td class="cell" colspan="2">
-              <img src="HotelBackground.jpg" alt="Picture 3">
-              <label>Room Type :</label> 
-              <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-            </td>
-          </tr>
-          <tr>
-            <td class="cell">
-              <img src="HotelBackground.jpg" alt="Picture 1">
-              <label>Room Type : </label>
-              <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-            </td>
-            <td class="cell">
-              <img src="HotelBackground.jpg" alt="Picture 2">
-              <label>Room Type :</label> 
-              <label>Room Number : </label>
-            <label>Room Price : </label>
-            <label>Room Availability Status : </label>
-            </td>
-          </tr>
-      </table>
-      </div>
+      </thead>
+      <tbody>
+        <!-- Generated rows -->
+      </tbody>
+    </table>
+  </div>
+
 </body>
+
+<script>
+  document.getElementById("signout-button").addEventListener("click", function () {
+    window.location.href = "signin.html";
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const tableBody = document.querySelector('.picture-table tbody');
+
+    fetch('http://localhost:3000/viewroom')
+      .then(response => response.json())
+      .then(rooms => {
+        let row = '';
+        rooms.forEach((room, index) => {
+          let roomImage = '';
+
+          switch (room.room_type) {
+            case 'Family Room':
+              roomImage = 'FamilyRoom.jpg';
+              break;
+            case 'Suite Room':
+              roomImage = 'SuiteRoom.jpg';
+              break;
+            case 'Standard Deluxe Room':
+              roomImage = 'StandardDeluxeRoom.jpg';
+              break;
+            default:
+              roomImage = 'HotelBackground.jpg';
+              break;
+          }
+
+          row += `
+            <td class="cell">
+              <img src="${roomImage}" alt="Room Image">
+              <label>Room Type: ${room.room_type}</label><br>
+              <label>Room Number: ${room.room_number}</label><br>
+              <label>Room Price: $${room.room_price}</label><br>
+              <label>Status: ${room.availability_status}</label>
+            </td>
+          `;
+
+          if ((index + 1) % 3 === 0 || index === rooms.length - 1) {
+            tableBody.innerHTML += `<tr>${row}</tr>`;
+            row = '';
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching room data:', error));
+  });
+</script>
+
+</html>
