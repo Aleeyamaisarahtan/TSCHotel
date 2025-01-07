@@ -1,233 +1,311 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF -8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>TSCHotel BOOKING</title>
+  <title>TSCHotel PAYMENT</title>
 
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;   
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-}
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 100px;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 99;
+    }
 
-.logo{
-    font-size: 2em;
-    color: #fff;
-    user-select: none;
-}
+    .logo {
+      font-size: 2em;
+      color: #fff;
+      user-select: none;
+    }
 
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  background: url('HotelBackground.jpg') no-repeat;
-  background-size:cover ;
-  background-position: center;
-}
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background: url('HotelBackground.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
 
-.navigation a{
-    position:relative ;
-    font-size: 1.1em;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;
-}
+    .navigation a {
+      position: relative;
+      font-size: 1.1em;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 40px;
+    }
 
-.navigation a::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    border-radius: 5px;
-    transform: scaleX(0);
-    transition: transform .5s;
-}
+    .navigation a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+      transform: scaleX(0);
+      transition: transform .5s;
+    }
 
-.navigation a:hover::after{
-    transform: scaleX(1);
-}
+    .navigation a:hover::after {
+      transform: scaleX(1);
+    }
 
-.navigation .btnsignout-popup{
-    width: 130px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #fff;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #fff;
-    font-weight: 500;
-    margin-left: 40px;
-    transition: .5s;
-}
+    .navigation .btnsignout-popup {
+      width: 130px;
+      height: 50px;
+      background: transparent;
+      border: 2px solid #fff;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: 500;
+      margin-left: 40px;
+      transition: .5s;
+    }
 
-.navigation .btnsignout-popup:hover{
-    background: #fff;
-    color: #162938;
-}
+    .navigation .btnsignout-popup:hover {
+      background: #fff;
+      color: #162938;
+    }
 
+    .wrapper {
+      position: relative;
+      width: 500px;
+      height: 600px;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 5);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.wrapper{
-  position:relative;
-  width: 400px;
-  height: 500px;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,5);
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .wrapper .form-box {
+      width: 100%;
+      padding: 60px;
+    }
 
-.wrapper .form-box{
-  width: 100%;
-  padding: 40px;
-}
+    .form-box h2 {
+      font-size: 2em;
+      color: #162938;
+      text-align: center;
+    }
 
-.form-box h2{
-  font-size: 2em;
-  color: #162938;
-  text-align: center;
-}
+    .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 1em;
+      color: #162938;
+      font-weight: 500;
+      pointer-events: none;
+      transition: .5s;
+    }
 
-.input-box label{
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 1em;
-  color: #162938;
-  font-weight: 500;
-  pointer-events: none;
-  transition: .5s;
-}
+    .display p {
+      margin: 10px;
+      color: #162938;
+    }
 
-  .display p {
-    margin: 10px;
-    color: #162938;
-}
+    .display {
+      border: 2px solid #162938;
+      border-radius: 10px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      margin: 20px 0;
+      width: 100%;
+      text-align: left;
+    }
 
-.display {
-    border: 2px solid #162938; 
-    border-radius: 10px;       
-    padding: 20px;             
-    background: rgba(255, 255, 255, 0.9); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-    margin: 20px 0;           
-    width: 100%;              
-    text-align: left;         
-}
+    .btn {
+      width: 100%;
+      height: 45px;
+      background: #162938;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #fff;
+      margin-top: 20px;
+      font-weight: 500;
+    }
 
+    .input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      border-bottom: 2px solid #162938;
+      margin: 30px 0;
+    }
 
-.btn{
-  width: 100%;
-  height: 45px;
-  background: #162938;
-  border: none;
-  outline: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1em;
-  color: #fff;
-  margin-top: 20px;
-  font-weight: 500;
-}
+    .input-box select {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1em;
+      color: #162938;
+      font-weight: normal;
+      padding: 0 35px 0 3px;
+    }
 
-.input-box{
-  position: relative;
-  width: 100%;
-  height: 50px;
-  border-bottom: 2px solid #162938;
-  margin: 30px 0;
-}
-
-.input-box select{
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-family: 'Times New Roman', Times, serif; 
-  font-size: 1em;
-  color: #162938;
-  font-weight: normal;
-  padding: 0 35px 0 3px;
-}
-
-</style>
+  </style>
 
 </head>
 
 <body>
-    <header>
-        <h2 class="logo">TSCHotel</h2>
-        <nav class="navigation">
-            <a href="#">Home</a>
-            <a href="#">View Rooms</a>
-            <a href="#">Book Room</a>
-            <a href="#">View Booking</a>
-            <button class="btnsignout-popup">Sign Out</button>
-        </nav>
-    </header>
-    <div class="wrapper">
-        <div class="form-box login">
-        
-        <h2>PAYMENT</h2>
-        
-            <div class="display">
-                
-            <p>Guest Name</p>
-            <p>Guest Email</p>
-            <p>Guest Phone Number</p>
-            <p>Check In Date</p>
-            <p>Check Out Date</p>
-            <p>Booking Amount</p>
-            <p>Booking Date</p>
-            </div>
+  <header>
+    <h2 class="logo">TSCHotel</h2>
+    <nav class="navigation">
+      <a href="http://localhost:3000/homepage.html">Home</a>
+      <a href="http://localhost:3000/viewroom.html">View Rooms</a>
+      <a href="http://localhost:3000/booking.html">Book Room</a>
+      <a href="http://localhost:3000/viewbooking.html">View Booking</a>
+      <button class="btnsignout-popup" id="signout-button">Sign Out</button>
+    </nav>
+  </header>
 
-            <div class="input-box">
-                <select id="room" name="room">
-                    <option >Choose Payment Method</option>
-                    <option >Cash</option>
-                    <option >Credit or Debit Card</option>
-                    <option >PayPal</option>
-                    <option >Alipay+</option>
-                  </select>
-                  </div>
-            <button type="submit" class="btn">Submit</button>
+  <div class="wrapper">
+    <div class="form-box login">
+      <h2>PAYMENT</h2>
 
+      <div class="display" method="GET">
+        <p>Guest Name: <span name="guest-name" id="guest-name"></span></p>
+        <p>Guest Email: <span name="guest-email" id="guest-email"></span></p>
+        <p>Guest Phone Number: <span name="guest-phone" id="guest-phone"></span></p>
+        <p>Check In Date: <span name="check-in" id="check-in"></span></p>
+        <p>Check Out Date: <span name="check-out" id="check-out"></span></p>
+        <p>Booking Amount: <span name="booking-amount" id="booking-amount"></span></p>
+        <p>Booking Date: <span name="booking_date" id="booking-date"></span></p>
+      </div>
 
-        
-        </div>
-        
-        </div>
-</body>        
+      <div class="input-box">
+        <select id="payment-method" name="payment-method">
+          <option>Choose Payment Method</option>
+          <option>Cash</option>
+          <option>Credit or Debit Card</option>
+          <option>PayPal</option>
+          <option>Alipay+</option>
+        </select>
+      </div>
+      <button type="submit"  id="submit-payment" class="btn">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    async function fetchBookingData(bookingId) {
+  try {
+    const response = await fetch(`/data?booking_id=${bookingId}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.length > 0) {
+      const booking = data[0];
+
+      document.getElementById('guest-name').textContent = booking.guest_name || 'N/A';
+      document.getElementById('guest-email').textContent = booking.guest_email || 'N/A';
+      document.getElementById('guest-phone').textContent = booking.guest_phone_number || 'N/A';
+      document.getElementById('check-in').textContent = booking.check_in_date 
+        ? new Date(booking.check_in_date).toLocaleDateString('en-GB') 
+        : 'N/A';
+      document.getElementById('check-out').textContent = booking.check_out_date 
+        ? new Date(booking.check_out_date).toLocaleDateString('en-GB') 
+        : 'N/A';
+      document.getElementById('booking-amount').textContent = booking.booking_amount || 'N/A';
+      document.getElementById('booking-date').textContent = booking.booking_date 
+        ? new Date(booking.booking_date).toLocaleDateString('en-GB') 
+        : 'N/A';
+    } else {
+      alert('Booking not found!');
+    }
+  } catch (error) {
+    console.error('Error fetching booking data:', error);
+  }
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const bookingId = urlParams.get('booking_id');
+
+if (bookingId) {
+  fetchBookingData(bookingId); 
+}
+
+async function submitPayment() {
+      const bookingId = new URLSearchParams(window.location.search).get('booking_id');
+      const paymentMethod = document.getElementById('payment-method').value;
+      const paymentAmount = document.getElementById('booking-amount').textContent;
+
+      if (!paymentMethod || paymentMethod === 'Choose Payment Method') {
+        alert('Please choose a payment method.');
+        return;
+      }
+
+      try {
+        const response = await fetch('/payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            bookingId: bookingId,
+            paymentMethod: paymentMethod,
+            paymentAmount: parseFloat(paymentAmount),
+          }),
+        });
+
+        if (response.ok) {
+          window.location.href = '/viewbooking.html'; 
+        } else {
+          const errorData = await response.json();
+          alert(`Error: ${errorData.message}`);
+        }
+      } catch (error) {
+        console.error('Error submitting payment:', error);
+      }
+    }
+
+    document.getElementById('submit-payment').addEventListener('click', submitPayment);
+    document.getElementById("signout-button").addEventListener("click", function() {
+    window.location.href = "signin.html";
+  });
+  
+
+  </script>
+
+</body>
+
+</html>

@@ -126,10 +126,7 @@
 
 </head>
 
-
-
 <body>
-
   <div class="wrapper">
     <div class="form-box login">
 
@@ -173,24 +170,13 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   <script>
-    // Assuming this script fetches the last user ID from the server (via API or database)
-    // This part of the code simulates the process of getting the last user ID and incrementing it.
-
-    // Example: fetching last user ID (simulate this with a function or an API request)
-    const lastUserId = 'U0003'; // Replace with dynamic fetch from the database if needed
-    
-    // Extract the number part and increment it
-    const lastIdNumber = parseInt(lastUserId.slice(1)); // Get number after 'U'
+    const lastUserId = 'U0003';
+    const lastIdNumber = parseInt(lastUserId.slice(1)); 
     const nextIdNumber = lastIdNumber + 1;
-    
-    // Generate the next user ID
-    const nextUserId = 'U' + nextIdNumber.toString().padStart(4, '0'); // Example: U0004
+    const nextUserId = 'U' + nextIdNumber.toString().padStart(4, '0');
 
-    // Assign the generated user ID to the hidden input field
     document.getElementById('userId').value = nextUserId;
   </script>
 
-</body>
-
-
+  </body>
 </html>
