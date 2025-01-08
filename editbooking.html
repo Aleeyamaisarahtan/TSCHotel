@@ -344,6 +344,13 @@ function calculateAmount() {
   const room = document.getElementById('room').value;
   const checkin = new Date(document.getElementById('checkin').value);
   const checkout = new Date(document.getElementById('checkout').value);
+
+  const ukFormatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
   
   if (room && checkin && checkout && checkin < checkout) {
     const duration = (checkout - checkin) / (1000 * 3600 * 24); 
@@ -354,7 +361,7 @@ function calculateAmount() {
     document.querySelector('#bookingAmount').value = bookingAmount;
 
     const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString('en-GB');  
+    const formattedDate = ukFormatter.format(currentDate);
     const formattedCheckinDate = checkin.toLocaleDateString('en-GB'); 
     document.querySelector('#display-date').textContent = formattedDate;
     document.querySelector('#bookingDate').value = formattedCheckinDate; 

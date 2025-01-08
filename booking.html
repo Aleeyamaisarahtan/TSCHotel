@@ -306,8 +306,9 @@ function calculateAmount() {
     document.querySelector('#display-amount').textContent = `$${bookingAmount}`;
     document.querySelector('#bookingAmount').value = bookingAmount;
   
+    const options = { timeZone: 'Europe/London', day: '2-digit', month: '2-digit', year: 'numeric' };
+    const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(currentDate);
     const formattedCheckinDate = checkin.toLocaleDateString('en-GB'); 
-    const formattedDate = new Intl.DateTimeFormat('en-GB').format(currentDate);
     document.querySelector('#display-date').textContent = formattedDate;
     document.querySelector('#bookingDate').value = formattedCheckinDate; 
   } else {
